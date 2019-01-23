@@ -11,7 +11,7 @@ func arrayToString(arr []string) string {
 	return strings.Join(arr, " ")
 }
 
-func getWorkingDir() string {
+func GetWorkingDir() string {
 	workingDir, err := os.Getwd()
 	if err != nil {
 		log.Fatal(err)

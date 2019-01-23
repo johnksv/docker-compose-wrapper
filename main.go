@@ -1,11 +1,7 @@
 package main
 
-import (
-	"docker-compose-wrapper/internal"
-)
-
 func main() {
-	internal.InitFlags()
+	InitFlags()
 
-	internal.DockerComposeWrapper("", nil)
+	DockerComposeWrapper("", nil)
 }

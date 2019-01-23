@@ -1,6 +1,7 @@
 package internal
 
 import (
+	"docker-compose-wrapper/types"
 	"fmt"
 	"log"
 	"path/filepath"
@@ -55,10 +56,7 @@ func usedEnvs(servicesToRun []Service, envsToCheck map[string]envVal) (map[strin
 	return result, resultServices
 }
 
-// EnvLookup A function returning a value for the given key, or nil to use the default
-type EnvLookup func(key string, defaultValue string) string
-
-func lookupEnvs(envLookup EnvLookup, envs map[string]envVal) {
+func lookupEnvs(envLookup types.EnvLookup, envs map[string]envVal) {
 	for key, envValue := range envs {
 		envs[key] = envVal{
 			value: envLookup(key, envValue.value),

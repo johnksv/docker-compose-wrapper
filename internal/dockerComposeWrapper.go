@@ -1,6 +1,7 @@
 package internal
 
 import (
+	"docker-compose-wrapper/types"
 	"fmt"
 	"log"
 	"os"
@@ -28,15 +29,15 @@ type LookupEnv interface {
 	lookupEnv(name string) string
 }
 
-func run(basedir string, registry string, customLookupFunc EnvLookup) {
+func Run(basedir string, registry string, customLookupFunc types.EnvLookup) {
 	composeFile := searchAndAskForDockerComposeFile(basedir)
 	envFile := findEnvFile(basedir)
 	// composeFile := "/Users/johnksv/digipost/digipost/docker-compose.yml"
 	// envFile := "/Users/johnksv/digipost/digispost/.env"
-	runWithFile(composeFile, envFile, registry, customLookupFunc)
+	RunWithFile(composeFile, envFile, registry, customLookupFunc)
 }
 
-func runWithFile(composeFile string, envFile string, registry string, customLookupFunc EnvLookup) {
+func RunWithFile(composeFile string, envFile string, registry string, customLookupFunc types.EnvLookup) {
 	services := parse(composeFile)
 	envFileValues := parseEnvFile(envFile)
 	// defaultEnvValues := envPropertiesToString(envFileValues)
