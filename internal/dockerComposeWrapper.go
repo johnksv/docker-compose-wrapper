@@ -123,7 +123,7 @@ func searchAndAskForDockerComposeFile(basedir string) string {
 		log.Fatal(err)
 	}
 	if len(matches) == 0 {
-		log.Fatal("No docker-compose found.")
+		log.Fatal("No docker-compose found. Run with flag -h for help")
 	}
 
 	result := matches[0]

@@ -1,11 +1,11 @@
 package main
 
 import (
-	init "github.com/johnksv/docker-compose-wrapper"
+	wrapper "github.com/johnksv/docker-compose-wrapper"
 )
 
 func main() {
-	init.Flags()
+	wrapper.Flags()
 
-	init.DockerComposeWrapper("", nil)
+	wrapper.DockerComposeWrapper("", nil)
 }
