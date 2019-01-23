@@ -1,13 +1,14 @@
 package internal
 
 import (
-	"docker-compose-wrapper/types"
 	"fmt"
 	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"sort"
+
+	"github.com/johnksv/docker-compose-wrapper/types"
 )
 
 const (

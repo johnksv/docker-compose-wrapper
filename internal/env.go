@@ -1,10 +1,11 @@
 package internal
 
 import (
-	"docker-compose-wrapper/types"
 	"fmt"
 	"log"
 	"path/filepath"
+
+	"github.com/johnksv/docker-compose-wrapper/types"
 
 	"github.com/joho/godotenv"
 )

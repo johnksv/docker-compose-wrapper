@@ -1,17 +1,18 @@
-package main
+package init
 
 import (
-	"docker-compose-wrapper/internal"
-	"docker-compose-wrapper/types"
 	"flag"
 	"log"
+
+	"github.com/johnksv/docker-compose-wrapper/internal"
+	"github.com/johnksv/docker-compose-wrapper/types"
 )
 
 var composeFile string
 var basedir string
 var envFile string
 
-func InitFlags() {
+func Flags() {
 	composeFilePtr := flag.String("f", "", "The docker-compose file to use.")
 	basedirPtr := flag.String("d", internal.GetWorkingDir(), "The directory to scan for compose and .env files. Defaults to working dir.")
 	envFilePtr := flag.String("env", "", "The .env file to use.")
