@@ -1,5 +1,5 @@
 # docker-compose-wrapper
-<img width="650" src="https://giant.gfycat.com/UnsungSnarlingArcticwolf.webm"/>
+<img width="650" src="https://thumbs.gfycat.com/UnsungSnarlingArcticwolf-size_restricted.gif"/>
 
 ## Get started
 
