@@ -7,5 +7,5 @@ import (
 func main() {
 	wrapper.Flags()
 
-	wrapper.DockerComposeWrapper("", nil)
+	wrapper.DockerComposeWrapper(nil)
 }

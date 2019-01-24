@@ -8,28 +8,31 @@ import (
 	"github.com/johnksv/docker-compose-wrapper/types"
 )
 
-var composeFile string
-var basedir string
-var envFile string
+var ComposeFile string
+var Basedir string
+var EnvFile string
+var Registry string
 
 func Flags() {
 	composeFilePtr := flag.String("f", "", "The docker-compose file to use.")
 	basedirPtr := flag.String("d", internal.GetWorkingDir(), "The directory to scan for compose and .env files. Defaults to working dir.")
 	envFilePtr := flag.String("env", "", "The .env file to use.")
+	registryPtr := flag.String("r", "", "The registry to use.")
 
 	flag.Parse()
-	composeFile = *composeFilePtr
-	basedir = *basedirPtr
-	envFile = *envFilePtr
+	ComposeFile = *composeFilePtr
+	Basedir = *basedirPtr
+	EnvFile = *envFilePtr
+	Registry = *registryPtr
 }
 
-// DockerComposeWrapper Registry: The registry to use for pulling images. EnvLookup: custom env lookup, can be nil
-func DockerComposeWrapper(registry string, envLookup types.EnvLookup) {
+// DockerComposeWrapper Registry: The registry to use for pulling images. . EnvLookup: custom env lookup, can be nil
+func DockerComposeWrapper(envLookup types.EnvLookup) {
 
-	if composeFile == "" && envFile == "" {
-		internal.Run(basedir, registry, envLookup)
-	} else if composeFile != "" && envFile != "" {
-		internal.RunWithFile(composeFile, envFile, registry, envLookup)
+	if ComposeFile == "" && EnvFile == "" {
+		internal.Run(Basedir, Registry, envLookup)
+	} else if ComposeFile != "" && EnvFile != "" {
+		internal.RunWithFile(ComposeFile, EnvFile, Registry, envLookup)
 	} else {
 		log.Fatal("env-flag and f-flag must be used together")
 	}
