@@ -22,6 +22,7 @@ type Service struct {
 	Image       string
 	Environment map[string]string
 	Build       map[string]interface{}
+	Command     string
 	Volumes     []volum
 }
 
@@ -42,6 +43,10 @@ func (service *Service) getUsedSystemEnvs() []string {
 		if strings.ContainsRune(value, '$') { //Only allow single value. TODO: Extend to support ${VAL}
 			result = append(result, strings.TrimPrefix(value, "$"))
 		}
+	}
+
+	if strings.ContainsRune(service.Command, '$') {
+		result = append(result, strings.TrimPrefix(service.Command, "$"))
 	}
 
 	return result

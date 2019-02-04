@@ -82,6 +82,13 @@ func mapImage(image interface{}) string {
 	return image.(string)
 }
 
+func mapCommand(command interface{}) string {
+	if val, ok := command.(string); ok {
+		return val
+	}
+	return ""
+}
+
 //Parse a docker compse file. Return the services
 func parse(composeFilePath string) []Service {
 
@@ -105,6 +112,7 @@ func parse(composeFilePath string) []Service {
 			Build:       mapBuild(content["build"]),
 			Environment: mapEnviornment(content["environment"]),
 			Volumes:     mapVolumes(content["volumes"]),
+			Command:     mapCommand(content["command"]),
 		}
 		result = append(result, service)
 	}
