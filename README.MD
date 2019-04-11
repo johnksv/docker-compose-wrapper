@@ -5,10 +5,10 @@
 
 
 ## Prerequisite
-Images must be defined in .env file.
+Docker-images must be defined in .env file (eg: `HAZELCAST_IMAGE=hazelcast/hazelcast:latest`).
 
 ## TODO
-Write README
-Write tests
-Refactor
+- Write README
+- Write tests
+- Refactor
 
